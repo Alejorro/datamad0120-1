@@ -2,8 +2,10 @@ from pymongo import MongoClient
 from errorHandler import jsonErrorHandler
 from bson.json_util import dumps
 import re
-# Connect to the database
-client = MongoClient("mongodb://localhost/companies")
+from config import dbURL
+
+client = MongoClient(dbURL)
+print(f"Connecting to {dbURL}")
 
 
 @jsonErrorHandler

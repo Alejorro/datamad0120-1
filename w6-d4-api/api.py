@@ -1,7 +1,9 @@
+import random
 from flask import Flask, request
 from tas import queryTas, tas
 from companies import getCompanyWithName
-import random
+import os
+
 app = Flask(__name__)
 
 
@@ -43,4 +45,4 @@ def getCompany(name):
     return getCompanyWithName(name)
 
 
-app.run("0.0.0.0", 5000, debug=True)
+app.run("0.0.0.0", os.getenv("PORT"), debug=True)
